@@ -9,8 +9,10 @@ c = db.cursor()    #facilitate db ops
 
 #==========================================================
 
-fObj = open("peeps.csv") 
-d=csv.DictReader(fObj)
+fObj1 = open("peeps.csv") 
+fObj2 = open("courses.csv")
+d1=csv.DictReader(fObj1)
+d2=csv.DictReader(fObj2)
 
 
     #Q: What can you print here to make each line show only
@@ -20,23 +22,27 @@ d=csv.DictReader(fObj)
 
 q = "CREATE TABLE students (name TEXT, id INTEGER)"
 
-for key in d:
-    ans = ""
-    for name in key:
-        if name == 'name':
-            field1 = key[name]
-        if name == 'id':
-            field2 = key[name]
-    q+= "INSERT INTO students VALUES(" + field1 +","+field2+");"
-
-
 c.execute(q)    #run SQL query
 
-'''
+for key in d1:
+    field1 = key['name']
+    field2 = key['id']
+    q = "INSERT INTO students VALUES('" + field1 + "','" +field2 + "');"
+
+c.execute(q)
+
+
 q = "CREATE TABLE courses (code TEXT, id INTEGER, mark INTEGER)"
 
 c.execute(q)
-'''
+
+for key in d2:
+    field1 = key['code']
+    field2 = key['id']
+    field3 = key['mark']
+    q = "INSERT INTO courses VALUES('" + field1 + "','" + field2 + "','" + field3 + "');" 
+
+c.execute(q)
 
 #==========================================================
 db.commit() #save changes
