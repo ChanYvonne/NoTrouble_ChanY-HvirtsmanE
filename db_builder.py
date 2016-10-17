@@ -28,8 +28,7 @@ for key in d1:
     field1 = key['name']
     field2 = key['id']
     q = "INSERT INTO students VALUES('" + field1 + "','" +field2 + "');"
-
-c.execute(q)
+    c.execute(q)
 
 
 q = "CREATE TABLE courses (code TEXT, id INTEGER, mark INTEGER)"
@@ -41,8 +40,7 @@ for key in d2:
     field2 = key['id']
     field3 = key['mark']
     q = "INSERT INTO courses VALUES('" + field1 + "','" + field2 + "','" + field3 + "');" 
-
-c.execute(q)
+    c.execute(q)
 
 #==========================================================
 db.commit() #save changes
