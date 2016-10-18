@@ -20,14 +20,15 @@ d2=csv.DictReader(fObj2)
     #   eg,
     #   sasha, 3
 
-q = "CREATE TABLE students (name TEXT, id INTEGER)"
+q = "CREATE TABLE students (name TEXT, age INTEGER, id INTEGER)"
 
 c.execute(q)    #run SQL query
 
 for key in d1:
     field1 = key['name']
-    field2 = key['id']
-    q = "INSERT INTO students VALUES('" + field1 + "','" +field2 + "');"
+    field2 = key['age']
+    field3 = key['id']
+    q = "INSERT INTO students VALUES('" + field1 + "','" +field2 + "','"+ field3+ "');"
     c.execute(q)
 
 
