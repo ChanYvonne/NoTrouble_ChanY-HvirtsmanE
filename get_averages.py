@@ -17,7 +17,7 @@ for record in sel:
     if record[0] == name:
         sum += record[1]
         amt += 1
-    if record[0] != name:
+    else:
         avg = sum/amt
         print name + ", " + str(id) + ", " + str(avg)
         name = record[0]
